@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Slice of Heaven - Order a Pizza</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
+</head>
+
+
+<body>
+    <header class="site-header">
+            <div class="header-text">
+                <h1>Slice House</h1>
+                <p class="tagline">Hand-built pies, ordered your way</p>
+            </div>
+    </header>
+
+    <main class="layout">
+        <section class="order-card" aria-labelledby="form-heading">
+            <h2 id="form-heading">Build Your Pizza</h2>
+            
+            <form id="pizza-form" novalidate>
+
+                <!-- Customer Details -->
+                 <fieldset>
+                    <legend>Your details</legend>
+
+                    <div class="field">
+                        <label for="customerName">Name</label>
+                        <input type="text" id="customerName" required />
+                        <span class="error-msg" id="err-customerName"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <span class="error-msg" id="err-phone"></span>
+                    </div>
+                 </fieldset>
+
+                 <!-- Pizza build -->
+                  <fieldset>
+                    <legend>Your pizza</legend>
+
+                    <div class="field">
+                        <label for="size">Size</label>
+                        <select id="size" name="size" required>
+                            <option value="" selected disabled>Choose a size&hellip;</option>
+                            <option value="small">Small (10")</option>
+                            <option value="medium">Medium (12")</option>
+                            <option value="large">Large (14")</option>
+                            <option value="x-large">X-Large (16")</option>
+                        </select>
+                        <span class="error-msg" id="err-size"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="crust">Crust</label>
+                        <select id="crust" name="crust" required>
+                            <option value="" selected disabled>Choose a crust&hellip;</option>
+                            <option value="thin">Thin crust</option>
+                            <option value="regular">Regular crust</option>
+                            <option value="thick crust">Thick crust</option>
+                            <option value="stuffed crust">Stuffed crust</option>
+                            <option value="deep-dish">Deep-dish</option>
+                        </select>
+                        <span class="error-msg" id="err-crust"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="sauce">Sauce</label>
+                        <select id="sauce" name="sauce" required>
+                            <option value="" selected disabled>Choose a sauce&hellip;</option>
+                            <option value="tomato">Tomato</option>
+                            <option value="smoky BBQ">Smoky BBQ</option>
+                            <option value="garlic alfredo">Garlic Alfredo</option>
+                        </select>
+                        <span class="error-msg" id="err-sauce"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="cheese">Cheese</label>
+                        <select id="cheese" name="cheese" required>
+                            <option value="" selected disabled>Choose an amount&hellip;</option>
+                            <option value="no cheese">No Cheese</option>
+                            <option value="light">Light</option>
+                            <option value="regular">Regular</option>
+                            <option value="extra">Extra</option>
+                        </select>
+                         <span class="error-msg" id="err-cheese"></span>
+                    </div>
+
+                    <div class="field">
+                        <span class="group-label">Toppings</span>
+                        <div class="topping-grid" id="topping-group">
+                            <label class="topping"><input type="checkbox" name="toppings" value="No Toppings" id="no-toppings" /> No Toppings</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Pepperoni" class="topping-choice" /> Pepperoni</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Italian Sausage" class="topping-choice" /> Italian Sausage</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Bacon" class="topping-choice" /> Bacon</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Mushrooms" class="topping-choice" /> Mushrooms</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Onions" class="topping-choice" /> Onions</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Green Peppers" class="topping-choice" /> Green Peppers</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Black Olives" class="topping-choice" /> Black Olives</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Pineapple" class="topping-choice" /> Pineapple</label>
+                            <label class="topping"><input type="checkbox" name="toppings" value="Jalapeños" class="topping-choice" /> Jalapeños</label>
+                        </div>
+                    <span class="error-msg" id="err-toppings"></span>
+                    </div>    
+                  </fieldset>
+
+                    <!-- Fulfillment -->
+                    <fieldset>
+                        <legend>Delivery or Pickup</legend>
+                        <div class="field">
+                            <span class="group-label">Delivery method</span>
+                                <div class="radio-row" id="delivery-group">
+                                    <label class="pill"><input type="radio" name="deliveryMethod" value="Pickup" /> Pickup</label>
+                                    <label class="pill"><input type="radio" name="deliveryMethod" value="Delivery" /> Delivery</label>
+                                </div>
+                            <span class="error-msg" id="err-deliveryMethod"></span>
+                        </div>
+
+                        <div class="field" id="address-field">
+                            <label for="address">Delivery address</label>
+                            <input type="text" id="address" name="address" />
+                            <span class="error-msg" id="err-address"></span>
+                        </div>
+
+                        <div class="field">
+                            <label for="instructions">Special instructions</label>
+                            <textarea id="instructions" name="instructions" rows="3" placeholder="optional"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="order-btn">Order Now</button>
+            </form>
+        </section>
+
+        <!-- ORDER OUTPUT -->
+        <section class="ticket-wrap">
+            <div class="ticket" id="ticket">
+                <p class="ticket-placeholder" id="ticket-placeholder">Your order ticket will print here once submitted.</p>
+                <pre class="ticket-text" id="ticket-text" hidden></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+    <p id="student-info">Natasha Bertrand - 200458345</p>
+    </footer>
+</body>
+</html>
